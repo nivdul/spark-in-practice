@@ -13,9 +13,7 @@ public class Ex1UserMiningTest {
   private Ex1UserMining ex1UserMining;
 
   @Before
-  public void init() {
-    ex1UserMining = new Ex1UserMining();
-  }
+  public void init() { ex1UserMining = new Ex1UserMining(); }
 
   @Test
   public void tweetsByUser() {
@@ -36,6 +34,6 @@ public class Ex1UserMiningTest {
 
     JavaPairRDD<String, Integer> example = result.filter(tuple -> "Dell Feddi".equals(tuple._1));
     Assert.assertEquals(1, example.count());
-    Assert.assertEquals(Integer.valueOf(29), example.collect().get(0)._2);
+    Assert.assertEquals(29, example.collect().get(0)._2.intValue());
   }
 }

@@ -6,6 +6,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 /**
  *  The Java Spark API documentation: http://spark.apache.org/docs/latest/api/java/index.html
@@ -50,8 +51,7 @@ public class Ex1UserMining {
   public JavaPairRDD<String, Iterable<Tweet>> tweetsByUser() {
     JavaRDD<Tweet> tweets = loadData();
 
-    // Hint: take a look at the groupBy method
-    JavaPairRDD<String, Iterable<Tweet>> tweetsByUser = null;
+    JavaPairRDD<String, Iterable<Tweet>> tweetsByUser = tweets.groupBy(tweet -> tweet.getUser());
 
     return tweetsByUser;
 
@@ -63,8 +63,8 @@ public class Ex1UserMining {
   public JavaPairRDD<String, Integer> tweetByUserNumber() {
     JavaRDD<Tweet> tweets = loadData();
 
-    // Hint: think about the wordcount example
-    JavaPairRDD<String, Integer> count = null;
+    JavaPairRDD<String, Integer> count = tweets.mapToPair(t -> new Tuple2<>(t.getUser(), 1))
+                                               .reduceByKey((x, y) -> x + y);
 
     return count;
   }

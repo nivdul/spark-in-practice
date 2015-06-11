@@ -4,6 +4,9 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
+
+import java.util.Arrays;
 
 
 /**
@@ -17,8 +20,6 @@ import org.apache.spark.api.java.JavaSparkContext;
  *
  *  step 2, the reducer:
  *  - for each key (=word), the values are added and we will obtain the total amount.
- *
- *  Use the Ex0WordcountTest to implement the code.
  *
  */
 public class Ex0Wordcount {
@@ -37,8 +38,7 @@ public class Ex0Wordcount {
     JavaSparkContext sc = new JavaSparkContext(conf);
 
     // load data and create an RDD where each element will be a word
-    // Hint: use the Spark context and take a look at the textfile and flatMap methods
-    JavaRDD<String> words = null;
+    JavaRDD<String> words = sc.textFile(pathToFile).flatMap(line -> Arrays.asList(line.split(" ")));
 
     return words;
 
@@ -51,13 +51,10 @@ public class Ex0Wordcount {
     JavaRDD<String> words = loadData();
 
     // Step 1: mapper step
-    // We want to attribute the number 1 to each word: so we create couples (word, 1) using the Tuple2 class.
-    // Hint : look at the mapToPair method
-    JavaPairRDD<String, Integer> couples = null;
+    JavaPairRDD<String, Integer> couples = words.mapToPair(word -> new Tuple2<String, Integer>(word, 1));
 
     // Step 2: reducer step
-    // Hint: the SPark API provides some reduce methods
-    JavaPairRDD<String, Integer> result = null;
+    JavaPairRDD<String, Integer> result = couples.reduceByKey((a, b) -> a + b);
 
     return result;
   }
@@ -68,8 +65,7 @@ public class Ex0Wordcount {
   public JavaPairRDD<String, Integer> filterOnWordcount() {
     JavaPairRDD<String, Integer> wordcounts = wordcount();
 
-    // Hint: the Spark API provides a filter method
-    JavaPairRDD<String, Integer> filtered = null;
+    JavaPairRDD<String, Integer> filtered = wordcounts.filter(couple -> couple._2 > 4);
 
     return filtered;
 
