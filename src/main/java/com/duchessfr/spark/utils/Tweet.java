@@ -38,6 +38,33 @@ public class Tweet implements Serializable {
     return country;
   }
 
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public void setPlace(String place) {
+    this.place = place;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
+  }
 
   @Override
   public String toString(){
