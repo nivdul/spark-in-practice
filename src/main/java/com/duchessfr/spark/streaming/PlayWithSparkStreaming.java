@@ -1,8 +1,6 @@
 package com.duchessfr.spark.streaming;
 
-import com.duchessfr.spark.utils.Tweet;
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.api.java.JavaDStream;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
@@ -33,7 +31,19 @@ public class PlayWithSparkStreaming {
    *  More about TwitterUtils:
    *  https://spark.apache.org/docs/0.9.0/api/external/twitter/index.html#org.apache.spark.streaming.twitter.TwitterUtils$
    */
-  private static  JavaDStream<Status> loadData() {
+
+  /**
+   *  Print the status's text of each status:
+   *  - a status is
+   */
+  private static void tweetPrint(JavaDStream<Status> tweetsStream) {
+    JavaDStream<String> status = tweetsStream.map(tweetStatus -> tweetStatus.getText());
+
+    status.print();
+
+  }
+
+  public static void main(String[] args) {
     // create the spark configuration and spark context
     SparkConf conf = new SparkConf()
         .setAppName("Play with Spark Streaming")
@@ -49,25 +59,11 @@ public class PlayWithSparkStreaming {
     // See http://twitter4j.org/javadoc/twitter4j/Status.html
     JavaDStream<Status> tweetsStream = TwitterUtils.createStream(jssc, StreamUtils.getAuth());
 
-    return tweetsStream;
-  }
+    tweetPrint(tweetsStream);
 
-  /**
-   *  Print the status's text of each status:
-   *  - a status is
-   */
-  private static void tweetPrint() {
-    JavaDStream<Status> tweetsStream = loadData();
-
-    JavaDStream<String> status = tweetsStream.map(tweetStatus -> tweetStatus.getText());
-
-    status.print();
-
-  }
-
-  public static void main(String[] args) {
-
-    tweetPrint();
+    // Start the context
+    jssc.start();
+    jssc.awaitTermination();
   }
 
 }
