@@ -1,4 +1,4 @@
-package com.duchessfr.spark.part1;
+package com.duchessfr.spark.core;
 
 import com.duchessfr.spark.utils.Parse;
 import com.duchessfr.spark.utils.Tweet;

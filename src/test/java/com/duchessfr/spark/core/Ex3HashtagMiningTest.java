@@ -1,4 +1,4 @@
-package com.duchessfr.spark.part1;
+package com.duchessfr.spark.core;
 
 
 import org.apache.spark.api.java.JavaPairRDD;

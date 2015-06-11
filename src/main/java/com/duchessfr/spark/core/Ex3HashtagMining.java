@@ -1,4 +1,4 @@
-package com.duchessfr.spark.part1;
+package com.duchessfr.spark.core;
 
 import com.duchessfr.spark.utils.Parse;
 import com.duchessfr.spark.utils.Tweet;
@@ -37,7 +37,7 @@ public class Ex3HashtagMining {
   public JavaRDD<Tweet> loadData() {
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
-        .setAppName("Tweet mining")
+        .setAppName("Hashtag mining")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
