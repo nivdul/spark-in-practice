@@ -2,6 +2,7 @@ package com.duchessfr.spark.dataframe;
 
 
 import org.apache.spark.sql.DataFrame;
+import org.apache.spark.sql.Row;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -57,11 +58,13 @@ public class DataFrameOnTweetsTest {
   }
 
   @Test
-  public void mostTweeter() {
+  public void popularTweeter() {
     // run
-    dataFrame.mostTweeter();
+    Row result = dataFrame.popularTweeter();
 
     // assert
+    Assert.assertEquals("#QuissyUpSoon", result.get(0));
+    Assert.assertEquals(258L, result.get(1));
 
   }
 

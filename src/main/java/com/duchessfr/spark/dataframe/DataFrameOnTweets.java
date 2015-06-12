@@ -1,18 +1,11 @@
 package com.duchessfr.spark.dataframe;
 
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.api.java.function.Function;
 import org.apache.spark.sql.DataFrame;
-import org.apache.spark.sql.GroupedData;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
-import scala.Tuple2;
-
-import java.util.Comparator;
-import java.util.List;
 
 /**
  *  The Spark SQL and DataFrame documentation is available on:
@@ -80,6 +73,9 @@ public class DataFrameOnTweets {
     dataFrame.printSchema();
   }
 
+  /**
+   *  Find people who are located in Paris
+   */
   public DataFrame filterByLocation() {
     DataFrame dataFrame = loadData();
 
@@ -90,24 +86,18 @@ public class DataFrameOnTweets {
 
   }
 
-  public void mostTweeter() {
+  /**
+   *  Find the user who tweets the more
+   */
+  public Row popularTweeter() {
     DataFrame dataFrame = loadData();
 
     // group the tweets by user first
     DataFrame countByUser = dataFrame.groupBy(dataFrame.col("user")).count();
+    // sort by descending order and take the first one
+    JavaRDD<Row> result = countByUser.javaRDD().sortBy(x -> x.get(1), false, 1);
 
-
-    System.out.println(countByUser.javaRDD().first());
-
-    // TODO
-    countByUser.javaRDD().sortBy(new Function<Row, Object>() {
-
-      @Override
-      public Object call(Row row) throws Exception {
-
-        return null;
-      }
-    }, false, 1);
+    return result.first();
 
   }
 
