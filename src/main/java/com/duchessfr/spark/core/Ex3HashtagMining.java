@@ -1,4 +1,4 @@
-package com.duchessfr.spark.part1;
+package com.duchessfr.spark.core;
 
 import com.duchessfr.spark.utils.Parse;
 import com.duchessfr.spark.utils.Tweet;
@@ -21,12 +21,12 @@ import java.util.List;
  *    "place":"Orissa",
  *    "country":"India"}
  *
- *  We want to make some computations on the tweets:
- *  - Find all the persons mentioned on tweets
- *  - Count how many times each person is mentioned
- *  - Find the 10 most mentioned persons by descending order
+ *  We want to make some computations on the hashtags. It is very similar to the exercise 2
+ *  - Find all the hashtags mentioned on a tweet
+ *  - Count how many times each hashtag is mentioned
+ *  - Find the 10 most popular hashtag by descending order
  */
-public class Ex2TweetMining {
+public class Ex3HashtagMining {
 
   private static String pathToFile = "data/reduced-tweets.txt";
 
@@ -41,17 +41,16 @@ public class Ex2TweetMining {
 
     JavaSparkContext sc = new JavaSparkContext(conf);
 
-    // load the data and create an RDD of Tweet
     JavaRDD<Tweet> tweets = sc.textFile(pathToFile)
-                              .map(line -> Parse.parseJsonToTweet(line));
+        .map(line -> Parse.parseJsonToTweet(line));
 
     return tweets;
   }
 
   /**
-   *  Find all the persons mentioned on tweets (case sensitive)
+   *  Find all the hashtags mentioned on tweets
    */
-  public JavaRDD<String> mentionOnTweet() {
+  public JavaRDD<String> hashtagMentionedOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
     // Hint: use a regex...
@@ -60,20 +59,22 @@ public class Ex2TweetMining {
     return mentions;
 
   }
+
   /**
-   *  Count how many times each person is mentioned
+   *  Count how many times each hashtag is mentioned
    */
-  public JavaPairRDD<String, Integer> countMentions() {
-    JavaRDD<String> mentions = mentionOnTweet();
+  public JavaPairRDD<String,Integer> countMentions() {
+    JavaRDD<String> mentions = hashtagMentionedOnTweet();
 
     // Hint: think about the wordcount example
-    JavaPairRDD<String, Integer> mentionCount = null;
+    JavaPairRDD<String, Integer> counts = null;
 
-    return mentionCount;
+    return counts;
+
   }
 
   /**
-   *  Find the 10 most mentioned persons by descending order
+   *  Find the 10 most popular Hashtags by descending order
    */
   public List<Tuple2<Integer, String>> mostMentioned() {
     JavaPairRDD<String, Integer> counts = countMentions();
@@ -82,6 +83,7 @@ public class Ex2TweetMining {
     List<Tuple2<Integer, String>> mostMentioned = null;
 
     return mostMentioned;
+
   }
 
 }
