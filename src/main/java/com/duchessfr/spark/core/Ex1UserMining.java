@@ -26,7 +26,7 @@ import scala.Tuple2;
  */
 public class Ex1UserMining {
 
-  private static String pathToFile = "data/reduced-tweets.txt";
+  private static String pathToFile = "data/reduced-tweets.json";
 
   /**
    *  Load the data from the text file and return an RDD of Tweet
