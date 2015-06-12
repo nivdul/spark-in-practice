@@ -31,7 +31,7 @@ import java.util.List;
  *
  *  You can see informations about the streaming in the Spark UI console: http://localhost:4040/streaming/
  */
-public class PlayWithSparkStreaming {
+public class StreamingOnTweets {
 
   JavaStreamingContext jssc;
   /**

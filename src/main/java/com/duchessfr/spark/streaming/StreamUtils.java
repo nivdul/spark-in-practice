@@ -4,7 +4,7 @@ import twitter4j.auth.OAuthAuthorization;
 import twitter4j.conf.ConfigurationBuilder;
 
 /**
- *  Utilitary class to authenticate with the Twitter streaming API.
+ *  Class to authenticate with the Twitter streaming API.
  *
  *  Go to https://apps.twitter.com/
  *  Create your application and then get your own credentials (keys and access tokens tab)

@@ -4,12 +4,12 @@ package com.duchessfr.spark.streaming;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PlayWithSparkStreamingTest {
+public class StreamingOnTweetsTest {
 
-  private PlayWithSparkStreaming streaming;
+  private StreamingOnTweets streaming;
   @Before
   public void init() {
-    streaming = new PlayWithSparkStreaming();
+    streaming = new StreamingOnTweets();
   }
 
   @Test
