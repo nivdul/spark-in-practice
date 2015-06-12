@@ -8,13 +8,22 @@ import twitter4j.conf.ConfigurationBuilder;
  *
  *  Go to https://apps.twitter.com/
  *  Create your application and then get your own credentials (keys and access tokens tab)
+ *
+ *  See https://databricks-training.s3.amazonaws.com/realtime-processing-with-spark-streaming.html
+ *  for help.
+ *
+ *  If you have the following error "error 401 Unauthorized":
+ *  - it might be because of wrong credentials
+ *  OR
+ *  - a time zone issue (so be certain that the time zone on your computer is the good one)
+ *
  */
 public class StreamUtils {
 
-  private static String CONSUMER_KEY = "PLEm9yaGqjHny80n9bHZUpsIf";
-  private static String CONSUMER_SECRET = "UwlhNqo8P451yN5Hh6VBlnSiJqRv032QSte9VpOQqH3kAtneXM";
-  private static String ACCESS_TOKEN = "493498548-UTAPXQ7D5FFfGZSMSMibzKEe9ddI0ImSP5UfW1dS";
-  private static String ACCESS_TOKEN_SECRET = "T0QVt5crqYmeOH5nVl4P7KFx52uCUMRqhKEF2ZUHLFMJO";
+  private static String CONSUMER_KEY = "AFiNChb80vxYZfhPls2DXyDpF";
+  private static String CONSUMER_SECRET = "JRg7SWyVFkXEESWbEzFzC1xaIGRC3xNdTvrekMvMFk6tjKooOR";
+  private static String ACCESS_TOKEN = "493498548-HCCt6LCposCb3Ij7Ygt7ssTxTBPwGoPrnkkDQoaN";
+  private static String ACCESS_TOKEN_SECRET = "3pxA3rnBzWa9bmOmOQPWNMpYc4qdOrOdxGFgp6XiCkEKH";
 
   public static OAuthAuthorization getAuth() {
 
