@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class Ex3HashtagMining {
 
-  private static String pathToFile = "data/reduced-tweets.txt";
+  private static String pathToFile = "data/reduced-tweets.json";
 
   /**
    *  Load the data from the text file and return an RDD of Tweet
@@ -53,6 +53,7 @@ public class Ex3HashtagMining {
   public JavaRDD<String> hashtagMentionedOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
+    // TODO write code here
     // Hint: use a regex...
     JavaRDD<String> mentions = null;
 
@@ -66,6 +67,7 @@ public class Ex3HashtagMining {
   public JavaPairRDD<String,Integer> countMentions() {
     JavaRDD<String> mentions = hashtagMentionedOnTweet();
 
+    // TODO write code here
     // Hint: think about the wordcount example
     JavaPairRDD<String, Integer> counts = null;
 
@@ -79,6 +81,7 @@ public class Ex3HashtagMining {
   public List<Tuple2<Integer, String>> mostMentioned() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
+    // TODO write code here
     // Hint: take a look at the sorting and then the take methods
     List<Tuple2<Integer, String>> mostMentioned = null;
 

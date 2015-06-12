@@ -65,6 +65,7 @@ public class StreamingOnTweets {
     JavaDStream<Status> tweetsStream = loadData();
 
     // Here print the status's text: see the Status class
+    // TODO write code here
     // Hint: use the print method
     JavaDStream<String> statusText = null;
 
@@ -80,6 +81,7 @@ public class StreamingOnTweets {
     JavaDStream<Status> tweetsStream = loadData();
 
     // First, find all hashtags
+    // TODO write code here
     JavaDStream<String> hashtags = null;
 
     // Make a "wordcount" on hashtag

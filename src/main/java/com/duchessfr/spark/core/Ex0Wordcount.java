@@ -37,6 +37,7 @@ public class Ex0Wordcount {
     JavaSparkContext sc = new JavaSparkContext(conf);
 
     // load data and create an RDD where each element will be a word
+    // TODO write code here
     // Hint: use the Spark context and take a look at the textfile and flatMap methods
     JavaRDD<String> words = null;
 
@@ -52,10 +53,12 @@ public class Ex0Wordcount {
 
     // Step 1: mapper step
     // We want to attribute the number 1 to each word: so we create couples (word, 1) using the Tuple2 class.
+    // TODO write code here
     // Hint : look at the mapToPair method
     JavaPairRDD<String, Integer> couples = null;
 
     // Step 2: reducer step
+    // TODO write code here
     // Hint: the SPark API provides some reduce methods
     JavaPairRDD<String, Integer> result = null;
 
@@ -69,6 +72,7 @@ public class Ex0Wordcount {
     JavaPairRDD<String, Integer> wordcounts = wordcount();
 
     // Hint: the Spark API provides a filter method
+    // TODO write code here
     JavaPairRDD<String, Integer> filtered = null;
 
     return filtered;

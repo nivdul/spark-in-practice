@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class Ex4InvertedIndex {
 
-  private static String pathToFile = "data/reduced-tweets.txt";
+  private static String pathToFile = "data/reduced-tweets.json";
 
   /**
    *  Load the data from the text file and return an RDD of Tweet
@@ -43,6 +43,7 @@ public class Ex4InvertedIndex {
   public Map<String, Iterable<Tweet>> invertedIndex() {
     JavaRDD<Tweet> tweets = loadData();
 
+    // TODO write code here
     // for each tweet, extract all the hashtag and then create couples (hashtag,tweet)
     // Hint: see the flatMapToPair method
 

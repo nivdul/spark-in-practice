@@ -25,7 +25,7 @@ import org.apache.spark.api.java.JavaSparkContext;
  */
 public class Ex1UserMining {
 
-  private static String pathToFile = "data/reduced-tweets.txt";
+  private static String pathToFile = "data/reduced-tweets.json";
 
   /**
    *  Load the data from the text file and return an RDD of Tweet
@@ -50,6 +50,7 @@ public class Ex1UserMining {
   public JavaPairRDD<String, Iterable<Tweet>> tweetsByUser() {
     JavaRDD<Tweet> tweets = loadData();
 
+    // TODO write code here
     // Hint: take a look at the groupBy method
     JavaPairRDD<String, Iterable<Tweet>> tweetsByUser = null;
 
@@ -63,6 +64,7 @@ public class Ex1UserMining {
   public JavaPairRDD<String, Integer> tweetByUserNumber() {
     JavaRDD<Tweet> tweets = loadData();
 
+    // TODO write code here
     // Hint: think about the wordcount example
     JavaPairRDD<String, Integer> count = null;
 
