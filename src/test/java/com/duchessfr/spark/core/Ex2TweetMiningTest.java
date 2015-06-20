@@ -43,7 +43,7 @@ public class Ex2TweetMiningTest {
   }
 
   @Test
-  public void mostMentioned() {
+  public void top10mentions() {
     // run
     List<Tuple2<Integer, String>> mostMentioned = ex2TweetMining.top10mentions();
 
