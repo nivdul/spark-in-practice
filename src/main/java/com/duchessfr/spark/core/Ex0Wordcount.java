@@ -65,7 +65,7 @@ public class Ex0Wordcount {
   public JavaPairRDD<String, Integer> filterOnWordcount() {
     JavaPairRDD<String, Integer> wordcounts = wordcount();
 
-    JavaPairRDD<String, Integer> filtered = wordcounts.filter(couple -> couple._2 > 4);
+    JavaPairRDD<String, Integer> filtered = wordcounts.filter(couple -> couple._2() > 4);
 
     return filtered;
 
