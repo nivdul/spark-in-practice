@@ -8,6 +8,9 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
+import java.util.Comparator;
+import java.util.List;
+
 /**
  *  The Java Spark API documentation: http://spark.apache.org/docs/latest/api/java/index.html
  *
@@ -29,7 +32,7 @@ public class Ex1UserMining {
   private static String pathToFile = "data/reduced-tweets.json";
 
   /**
-   *  Load the data from the text file and return an RDD of Tweet
+   *  Load the data from the json file and return an RDD of Tweet
    */
   public JavaRDD<Tweet> loadData() {
     // create spark configuration and spark context
