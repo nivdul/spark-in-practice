@@ -60,6 +60,7 @@ public class Ex2TweetMining {
     return mentions;
 
   }
+
   /**
    *  Count how many times each person is mentioned
    */
@@ -67,15 +68,15 @@ public class Ex2TweetMining {
     JavaRDD<String> mentions = mentionOnTweet();
 
     JavaPairRDD<String, Integer> mentionCount = mentions.mapToPair(mention -> new Tuple2<>(mention, 1))
-                                                         .reduceByKey((x, y) -> x + y)
-                                                         .sortByKey();
+                                                         .reduceByKey((x, y) -> x + y);
+
     return mentionCount;
   }
 
   /**
    *  Find the 10 most mentioned persons by descending order
    */
-  public List<Tuple2<Integer, String>> mostMentioned() {
+  public List<Tuple2<Integer, String>> top10mentions() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
     List<Tuple2<Integer, String>> mostMentioned = counts.mapToPair(pair -> new Tuple2<>(pair._2(), pair._1()))
