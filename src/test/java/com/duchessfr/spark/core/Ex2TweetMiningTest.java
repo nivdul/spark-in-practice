@@ -37,20 +37,20 @@ public class Ex2TweetMiningTest {
 
     // assert
     Assert.assertEquals(3103, counts.count());
-    JavaPairRDD<String, Integer> filter = counts.filter(couple -> "@JordinSparks".equals(couple._1));
+    JavaPairRDD<String, Integer> filter = counts.filter(couple -> "@JordinSparks".equals(couple._1()));
     Assert.assertEquals(1, filter.count());
-    Assert.assertEquals(2, filter.first()._2.intValue());
+    Assert.assertEquals(2, filter.first()._2().intValue());
   }
 
   @Test
-  public void mostMentioned() {
+  public void top10mentions() {
     // run
-    List<Tuple2<Integer, String>> mostMentioned = ex2TweetMining.mostMentioned();
+    List<Tuple2<Integer, String>> mostMentioned = ex2TweetMining.top10mentions();
 
     // assert
     Assert.assertEquals(10, mostMentioned.size());
-    Assert.assertEquals(100, mostMentioned.get(1)._1.intValue());
-    Assert.assertEquals("@HIITMANonDECK", mostMentioned.get(1)._2);
+    Assert.assertEquals(100, mostMentioned.get(1)._1().intValue());
+    Assert.assertEquals("@HIITMANonDECK", mostMentioned.get(1)._2());
   }
 
 }

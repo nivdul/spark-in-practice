@@ -31,7 +31,7 @@ public class Ex2TweetMining {
   private static String pathToFile = "data/reduced-tweets.json";
 
   /**
-   *  Load the data from the text file and return an RDD of Tweet
+   *  Load the data from the json file and return an RDD of Tweet
    */
   public JavaRDD<Tweet> loadData() {
     // create spark configuration and spark context
@@ -77,7 +77,7 @@ public class Ex2TweetMining {
   /**
    *  Find the 10 most mentioned persons by descending order
    */
-  public List<Tuple2<Integer, String>> mostMentioned() {
+  public List<Tuple2<Integer, String>> top10mentions() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
     // TODO write code here

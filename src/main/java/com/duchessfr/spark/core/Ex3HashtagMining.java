@@ -31,7 +31,7 @@ public class Ex3HashtagMining {
   private static String pathToFile = "data/reduced-tweets.json";
 
   /**
-   *  Load the data from the text file and return an RDD of Tweet
+   *  Load the data from the json file and return an RDD of Tweet
    */
   public JavaRDD<Tweet> loadData() {
     // create spark configuration and spark context
