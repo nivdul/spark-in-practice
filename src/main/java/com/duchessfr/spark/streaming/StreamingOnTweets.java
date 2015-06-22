@@ -86,13 +86,14 @@ public class StreamingOnTweets {
                                                .filter(word -> word.matches("#(\\w+)") && word.length() > 1);
 
     // Make a "wordcount" on hashtag
+    // Reduce last 60 seconds of data
     JavaPairDStream<Integer, String> hashtagMention = hashtags.mapToPair(mention -> new Tuple2<>(mention, 1))
-                                                              .reduceByKeyAndWindow((x, y) -> x + y, new Duration(50000))
+                                                              .reduceByKeyAndWindow((x, y) -> x + y, new Duration(60000))
                                                               .mapToPair(pair -> new Tuple2<>(pair._2(), pair._1()));
 
 
     // Then sort the hashtags
-    JavaPairDStream<Integer, String> sortedHashtag = hashtagMention.transformToPair(hashtagRDD -> hashtagRDD.sortByKey());
+    JavaPairDStream<Integer, String> sortedHashtag = hashtagMention.transformToPair(hashtagRDD -> hashtagRDD.sortByKey(false));
 
     // and return the 10 most populars
     List<Tuple2<Integer, String>> top10 = new ArrayList<>();
