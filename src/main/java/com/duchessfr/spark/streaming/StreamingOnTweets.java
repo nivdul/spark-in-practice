@@ -97,6 +97,7 @@ public class StreamingOnTweets {
 
     // and return the 10 most populars
     List<Tuple2<Integer, String>> top10 = new ArrayList<>();
+
     sortedHashtag.foreachRDD(rdd -> {
       List<Tuple2<Integer, String>> mostPopular = rdd.take(10);
       top10.addAll(mostPopular);
