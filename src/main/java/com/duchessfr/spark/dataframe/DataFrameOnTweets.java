@@ -40,7 +40,7 @@ public class DataFrameOnTweets {
 
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
-        .setAppName("User mining")
+        .setAppName("Dataframe")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
@@ -89,7 +89,7 @@ public class DataFrameOnTweets {
   /**
    *  Find the user who tweets the more
    */
-  public Row popularTweeter() {
+  public Row popularTwitterers() {
     DataFrame dataFrame = loadData();
 
     // group the tweets by user first

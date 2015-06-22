@@ -60,7 +60,7 @@ public class DataFrameOnTweetsTest {
   @Test
   public void popularTweeter() {
     // run
-    Row result = dataFrame.popularTweeter();
+    Row result = dataFrame.popularTwitterers();
 
     // assert
     Assert.assertEquals("#QuissyUpSoon", result.get(0));
