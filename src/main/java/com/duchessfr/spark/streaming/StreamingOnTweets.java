@@ -81,6 +81,7 @@ public class StreamingOnTweets {
     JavaDStream<Status> tweetsStream = loadData();
 
     // First, find all hashtags
+    // stream is like a sequence of RDD so you can do all the operation you did in the first part of the hands-on
     JavaDStream<String> hashtags = tweetsStream.flatMap(tweet -> Arrays.asList(tweet.getText().split(" ")))
                                                .filter(word -> word.matches("#(\\w+)") && word.length() > 1);
 
@@ -94,10 +95,10 @@ public class StreamingOnTweets {
     JavaPairDStream<Integer, String> sortedHashtag = hashtagMention.transformToPair(hashtagRDD -> hashtagRDD.sortByKey());
 
     // and return the 10 most populars
-    List<Tuple2<Integer, String>> mostPopulars = new ArrayList<>();
+    List<Tuple2<Integer, String>> top10 = new ArrayList<>();
     sortedHashtag.foreachRDD(rdd -> {
       List<Tuple2<Integer, String>> mostPopular = rdd.take(10);
-      mostPopulars.addAll(mostPopular);
+      top10.addAll(mostPopular);
 
       return null;
     });
@@ -106,7 +107,7 @@ public class StreamingOnTweets {
     jssc.start();
     jssc.awaitTermination();
 
-    return "Most popular hashtag :" + mostPopulars;
+    return "Most popular hashtag :" + top10;
   }
 
 }
