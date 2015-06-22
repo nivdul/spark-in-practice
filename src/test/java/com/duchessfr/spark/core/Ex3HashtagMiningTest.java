@@ -45,7 +45,7 @@ public class Ex3HashtagMiningTest {
   @Test
   public void mostMentioned() {
     // run
-    List<Tuple2<Integer, String>> mostMentioned = ex3HashtagMining.mostMentioned();
+    List<Tuple2<Integer, String>> mostMentioned = ex3HashtagMining.top10HashTags();
 
     // assert
     Assert.assertEquals(10, mostMentioned.size());

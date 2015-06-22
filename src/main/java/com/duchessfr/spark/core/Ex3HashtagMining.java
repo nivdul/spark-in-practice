@@ -68,8 +68,7 @@ public class Ex3HashtagMining {
     JavaRDD<String> mentions = hashtagMentionedOnTweet();
 
     JavaPairRDD<String, Integer> counts = mentions.mapToPair(mention -> new Tuple2<>(mention, 1))
-                                                        .reduceByKey((x, y) -> x + y)
-                                                        .sortByKey();
+                                                        .reduceByKey((x, y) -> x + y);
 
     return counts;
 
@@ -78,7 +77,7 @@ public class Ex3HashtagMining {
   /**
    *  Find the 10 most popular Hashtags by descending order
    */
-  public List<Tuple2<Integer, String>> mostMentioned() {
+  public List<Tuple2<Integer, String>> top10HashTags() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
     List<Tuple2<Integer, String>> mostMentioned = counts.mapToPair(pair -> new Tuple2<>(pair._2(), pair._1()))
