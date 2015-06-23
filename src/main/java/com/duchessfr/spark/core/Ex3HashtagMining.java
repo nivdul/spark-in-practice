@@ -55,7 +55,7 @@ public class Ex3HashtagMining {
     JavaRDD<Tweet> tweets = loadData();
 
     JavaRDD<String> mentions = tweets.flatMap(tweet -> Arrays.asList(tweet.getText().split(" ")))
-                                     .filter(word -> word.matches("#(\\w+)") && word.length() > 1);
+                                     .filter(word -> word.startsWith("#") && word.length() > 1);
 
     return mentions;
 
@@ -68,7 +68,7 @@ public class Ex3HashtagMining {
     JavaRDD<String> mentions = hashtagMentionedOnTweet();
 
     JavaPairRDD<String, Integer> counts = mentions.mapToPair(mention -> new Tuple2<>(mention, 1))
-                                                        .reduceByKey((x, y) -> x + y);
+                                                  .reduceByKey((x, y) -> x + y);
 
     return counts;
 
