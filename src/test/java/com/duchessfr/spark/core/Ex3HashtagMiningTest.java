@@ -25,7 +25,7 @@ public class Ex3HashtagMiningTest {
     JavaRDD<String> mentions = ex3HashtagMining.hashtagMentionedOnTweet();
 
     // assert
-    Assert.assertEquals(4665, mentions.count());
+    Assert.assertEquals(5262, mentions.count());
     JavaRDD<String> filter = mentions.filter(mention -> "#youtube".equals(mention));
     Assert.assertEquals(2, filter.count());
   }
@@ -36,20 +36,21 @@ public class Ex3HashtagMiningTest {
     JavaPairRDD<String, Integer> counts = ex3HashtagMining.countMentions();
 
     // assert
-    Assert.assertEquals(2113, counts.count());
-    JavaPairRDD<String, Integer> filter = counts.filter(mention -> "#youtube".equals(mention._1));
+    Assert.assertEquals(2461, counts.count());
+    JavaPairRDD<String, Integer> filter = counts.filter(mention -> "#youtube".equals(mention._1()));
     Assert.assertEquals(1, filter.count());
-    Assert.assertEquals(2, filter.first()._2.intValue());
+    Assert.assertEquals(2, filter.first()._2().intValue());
   }
 
   @Test
   public void mostMentioned() {
     // run
-    List<Tuple2<Integer, String>> mostMentioned = ex3HashtagMining.mostMentioned();
+    List<Tuple2<Integer, String>> mostMentioned = ex3HashtagMining.top10HashTags();
 
     // assert
     Assert.assertEquals(10, mostMentioned.size());
-    Assert.assertEquals(253, mostMentioned.get(0)._1.intValue());
-    Assert.assertEquals("#DME", mostMentioned.get(0)._2);
+    Assert.assertEquals(253, mostMentioned.get(0)._1().intValue());
+    Assert.assertEquals("#DME", mostMentioned.get(0)._2());
   }
+
 }

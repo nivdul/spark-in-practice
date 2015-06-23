@@ -43,16 +43,17 @@ public class Ex4InvertedIndex {
   public Map<String, Iterable<Tweet>> invertedIndex() {
     JavaRDD<Tweet> tweets = loadData();
 
-    // TODO write code here
     // for each tweet, extract all the hashtag and then create couples (hashtag,tweet)
     // Hint: see the flatMapToPair method
-
+    // TODO write code here
     JavaPairRDD<String, Tweet> pairs = null;
 
     // We want to group the tweets by hashtag
-    JavaPairRDD<String, Iterable<Tweet>> tweetsByHashtag = pairs.groupByKey();
+    // TODO write code here
+    JavaPairRDD<String, Iterable<Tweet>> tweetsByHashtag = null;
 
     // Then return the inverted index (= a map structure)
+    // TODO write code here
     Map<String, Iterable<Tweet>> map = null;
 
     return map;

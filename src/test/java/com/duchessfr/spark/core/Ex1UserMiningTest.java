@@ -34,8 +34,9 @@ public class Ex1UserMiningTest {
     // assert
     Assert.assertEquals(5967, result.count());
 
-    JavaPairRDD<String, Integer> example = result.filter(tuple -> "Dell Feddi".equals(tuple._1));
+    JavaPairRDD<String, Integer> example = result.filter(tuple -> "Dell Feddi".equals(tuple._1()));
     Assert.assertEquals(1, example.count());
-    Assert.assertEquals(Integer.valueOf(29), example.collect().get(0)._2);
+    Assert.assertEquals(29, example.collect().get(0)._2().intValue());
   }
+
 }

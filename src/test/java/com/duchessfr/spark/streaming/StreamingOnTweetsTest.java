@@ -22,9 +22,9 @@ public class StreamingOnTweetsTest {
   }
 
   @Test
-  public void popularHashtag() {
+  public void top10Hashtag() {
     // run
-    String result = streaming.popularHashtag();
+    String result = streaming.top10Hashtag();
 
     // assert
     System.out.println(result);

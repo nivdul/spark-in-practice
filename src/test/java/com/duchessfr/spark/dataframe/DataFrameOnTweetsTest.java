@@ -58,9 +58,9 @@ public class DataFrameOnTweetsTest {
   }
 
   @Test
-  public void popularTweeter() {
+  public void mostPopularTwitterer() {
     // run
-    Row result = dataFrame.popularTweeter();
+    Row result = dataFrame.mostPopularTwitterer();
 
     // assert
     Assert.assertEquals("#QuissyUpSoon", result.get(0));

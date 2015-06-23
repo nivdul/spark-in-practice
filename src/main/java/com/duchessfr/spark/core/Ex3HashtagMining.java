@@ -53,8 +53,8 @@ public class Ex3HashtagMining {
   public JavaRDD<String> hashtagMentionedOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
-    // TODO write code here
     // Hint: use a regex...
+    // TODO write code here
     JavaRDD<String> mentions = null;
 
     return mentions;
@@ -67,8 +67,8 @@ public class Ex3HashtagMining {
   public JavaPairRDD<String,Integer> countMentions() {
     JavaRDD<String> mentions = hashtagMentionedOnTweet();
 
-    // TODO write code here
     // Hint: think about the wordcount example
+    // TODO write code here
     JavaPairRDD<String, Integer> counts = null;
 
     return counts;
@@ -78,14 +78,14 @@ public class Ex3HashtagMining {
   /**
    *  Find the 10 most popular Hashtags by descending order
    */
-  public List<Tuple2<Integer, String>> mostMentioned() {
+  public List<Tuple2<Integer, String>> top10HashTags() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
-    // TODO write code here
     // Hint: take a look at the sorting and then the take methods
-    List<Tuple2<Integer, String>> mostMentioned = null;
+    // TODO write code here
+    List<Tuple2<Integer, String>> top10 = null;
 
-    return mostMentioned;
+    return top10;
 
   }
 

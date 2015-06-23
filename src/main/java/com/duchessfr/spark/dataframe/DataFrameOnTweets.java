@@ -92,13 +92,15 @@ public class DataFrameOnTweets {
   /**
    *  Find the user who tweets the more
    */
-  public Row popularTweeter() {
+  public Row mostPopularTwitterer() {
     DataFrame dataFrame = loadData();
 
-    // TODO write code here
     // group the tweets by user first
+    // TODO write code here
     DataFrame countByUser = null;
+
     // sort by descending order and take the first one
+    // TODO write code here
     JavaRDD<Row> result = null;
 
     return result.first();

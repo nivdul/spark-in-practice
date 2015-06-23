@@ -54,8 +54,8 @@ public class Ex2TweetMining {
   public JavaRDD<String> mentionOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
-    // TODO write code here
     // Hint: use a regex...
+    // TODO write code here
     JavaRDD<String> mentions = null;
 
     return mentions;
@@ -67,8 +67,8 @@ public class Ex2TweetMining {
   public JavaPairRDD<String, Integer> countMentions() {
     JavaRDD<String> mentions = mentionOnTweet();
 
-    // TODO write code here
     // Hint: think about the wordcount example
+    // TODO write code here
     JavaPairRDD<String, Integer> mentionCount = null;
 
     return mentionCount;
@@ -80,8 +80,8 @@ public class Ex2TweetMining {
   public List<Tuple2<Integer, String>> top10mentions() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
-    // TODO write code here
     // Hint: take a look at the sorting and then the take methods
+    // TODO write code here
     List<Tuple2<Integer, String>> mostMentioned = null;
 
     return mostMentioned;

@@ -77,7 +77,7 @@ public class StreamingOnTweets {
   /**
    *  Find the 10 most popular Hashtag
    */
-  public String popularHashtag() {
+  public String top10Hashtag() {
     JavaDStream<Status> tweetsStream = loadData();
 
     // First, find all hashtags
@@ -86,16 +86,19 @@ public class StreamingOnTweets {
 
     // Make a "wordcount" on hashtag
     // Hint: define a window for the reduce step. For example 50000 milliseconds.
+    // TODO write code here
     JavaPairDStream<Integer, String> hashtagMention = null;
 
 
     // Then sort the hashtags
     // Hint: look at the transformToPair method
+    // TODO write code here
     JavaPairDStream<Integer, String> sortedHashtag = null;
 
     // and return the 10 most populars
     List<Tuple2<Integer, String>> mostPopulars = new ArrayList<>();
-;   // Hint: loop on the RDD and take the 10 most popular
+    // TODO write code here
+    // Hint: loop on the RDD and take the 10 most popular
 
     // Start the context
     jssc.start();
