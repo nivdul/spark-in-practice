@@ -70,10 +70,10 @@ public class Ex4InvertedIndex {
     });
 
     // We use the groupBy method to group the tweets by hashtag
-    JavaPairRDD<String, Iterable<Tweet>> tweetsByHashtag = pairs.groupByKey();
+    JavaPairRDD<String, Iterable<Tweet>> tweetsByHashtag = pairs.groupByKey(); //expensive shuffle
 
     // Then return a map using the collectAsMap method on the RDD
-    Map<String, Iterable<Tweet>> map = tweetsByHashtag.collectAsMap();
+    Map<String, Iterable<Tweet>> map = tweetsByHashtag.collectAsMap(); //even more expensive ops
 
     return map;
 
