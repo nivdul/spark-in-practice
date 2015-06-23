@@ -49,14 +49,15 @@ public class Ex2TweetMining {
   }
 
   /**
-   *  Find all the persons mentioned on tweets (case sensitive)
+   *  Find all the persons mentioned on tweets
    */
   public JavaRDD<String> mentionOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
     JavaRDD<String> mentions = tweets.flatMap(tweet -> Arrays.asList(tweet.getText().split(" ")))
-                                     .filter(word -> word.matches("@(\\w+)") && word.length() > 1);
+                                     .filter(word -> word.startsWith("@") && word.length() > 1);
 
+    System.out.println("mentions.count() " + mentions.count());
     return mentions;
 
   }

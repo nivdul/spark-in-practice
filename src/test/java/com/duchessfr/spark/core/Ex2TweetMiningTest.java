@@ -25,7 +25,7 @@ public class Ex2TweetMiningTest {
     JavaRDD<String> mentions = ex2TweetMining.mentionOnTweet();
 
     // assert
-    Assert.assertEquals(4241, mentions.count());
+    Assert.assertEquals(4462, mentions.count());
     JavaRDD<String> filter = mentions.filter(mention -> "@JordinSparks".equals(mention));
     Assert.assertEquals(2, filter.count());
   }
@@ -36,7 +36,7 @@ public class Ex2TweetMiningTest {
     JavaPairRDD<String, Integer> counts = ex2TweetMining.countMentions();
 
     // assert
-    Assert.assertEquals(3103, counts.count());
+    Assert.assertEquals(3283, counts.count());
     JavaPairRDD<String, Integer> filter = counts.filter(couple -> "@JordinSparks".equals(couple._1()));
     Assert.assertEquals(1, filter.count());
     Assert.assertEquals(2, filter.first()._2().intValue());
@@ -49,6 +49,8 @@ public class Ex2TweetMiningTest {
 
     // assert
     Assert.assertEquals(10, mostMentioned.size());
+    Assert.assertEquals(189, mostMentioned.get(0)._1().intValue());
+    Assert.assertEquals("@ShawnMendes", mostMentioned.get(0)._2());
     Assert.assertEquals(100, mostMentioned.get(1)._1().intValue());
     Assert.assertEquals("@HIITMANonDECK", mostMentioned.get(1)._2());
   }
