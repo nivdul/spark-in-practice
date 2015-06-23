@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+
 public class DataFrameOnTweetsTest {
 
   private DataFrameOnTweets dataFrame;
@@ -58,9 +59,9 @@ public class DataFrameOnTweetsTest {
   }
 
   @Test
-  public void popularTweeter() {
+  public void mostPopularTwitterer() {
     // run
-    Row result = dataFrame.popularTwitterers();
+    Row result = dataFrame.mostPopularTwitterer();
 
     // assert
     Assert.assertEquals("#QuissyUpSoon", result.get(0));

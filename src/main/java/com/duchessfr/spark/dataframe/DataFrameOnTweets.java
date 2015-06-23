@@ -89,7 +89,7 @@ public class DataFrameOnTweets {
   /**
    *  Find the user who tweets the more
    */
-  public Row popularTwitterers() {
+  public Row mostPopularTwitterer() {
     DataFrame dataFrame = loadData();
 
     // group the tweets by user first
