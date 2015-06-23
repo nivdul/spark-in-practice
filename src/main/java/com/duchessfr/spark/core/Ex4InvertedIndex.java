@@ -54,10 +54,8 @@ public class Ex4InvertedIndex {
       List<String> hashtags = new ArrayList();
       List<String> words = Arrays.asList(tweet.getText().split(" "));
 
-      String pattern = "#(\\w+)";
-
       for (String word: words) {
-        if (word.matches(pattern)) {
+        if (word.startsWith("#") && word.length() > 1) {
           hashtags.add(word);
         }
       }
