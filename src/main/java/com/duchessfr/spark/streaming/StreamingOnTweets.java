@@ -77,7 +77,7 @@ public class StreamingOnTweets {
   /**
    *  Find the 10 most popular Hashtag
    */
-  public String popularHashtag() {
+  public String top10Hashtag() {
     JavaDStream<Status> tweetsStream = loadData();
 
     // First, find all hashtags
