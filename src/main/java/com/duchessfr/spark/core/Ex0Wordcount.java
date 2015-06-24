@@ -37,8 +37,9 @@ public class Ex0Wordcount {
     JavaSparkContext sc = new JavaSparkContext(conf);
 
     // load data and create an RDD where each element will be a word
-    // TODO write code here
+    // So you want to return a JavaRDD<String>
     // Hint: use the Spark context and take a look at the textfile and flatMap methods
+    // TODO write code here
     JavaRDD<String> words = null;
 
     return words;
@@ -46,32 +47,34 @@ public class Ex0Wordcount {
   }
 
   /**
-   *  Now count how much each word appears !
+   *  Now count how much each word appears!
    */
   public JavaPairRDD<String, Integer> wordcount() {
     JavaRDD<String> words = loadData();
 
-    // Step 1: mapper step
-    // We want to attribute the number 1 to each word: so we create couples (word, 1) using the Tuple2 class.
+    // Step 1: the mapper step
+    // The philosophy: we want to attribute the number 1 to each word: so we create couples (word, 1) using the Tuple2 class.
+    // Hint: look at the mapper methods provided by Spark
     // TODO write code here
-    // Hint : look at the mapToPair method
     JavaPairRDD<String, Integer> couples = null;
 
     // Step 2: reducer step
+    // The philosophy: now you have couple (key, value) where the key is a word, you want to aggregate the value for each word.
+    // So you will use a reducer function.
+    // Hint: the Spark API provides some reduce methods
     // TODO write code here
-    // Hint: the SPark API provides some reduce methods
     JavaPairRDD<String, Integer> result = null;
 
     return result;
   }
 
   /**
-   *  Now just keep the word which appear strictly more than 4 times!
+   *  Now keep the word which appear strictly more than 4 times!
    */
   public JavaPairRDD<String, Integer> filterOnWordcount() {
     JavaPairRDD<String, Integer> wordcounts = wordcount();
 
-    // Hint: the Spark API provides a filter method
+    // Hint: the Spark API provides filter method
     // TODO write code here
     JavaPairRDD<String, Integer> filtered = null;
 
