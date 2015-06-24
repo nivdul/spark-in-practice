@@ -25,6 +25,8 @@ import java.util.List;
  *  - Find all the hashtags mentioned on a tweet
  *  - Count how many times each hashtag is mentioned
  *  - Find the 10 most popular hashtag by descending order
+ *
+ *  Use the Ex3HashtagMiningTest to implement the code.
  */
 public class Ex3HashtagMining {
 
@@ -53,7 +55,8 @@ public class Ex3HashtagMining {
   public JavaRDD<String> hashtagMentionedOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
-    // Hint: use a regex...
+    // You want to return an RDD with the mentions
+    // Hint: think about separating the word in the text field and then find the mentions
     // TODO write code here
     JavaRDD<String> mentions = null;
 
@@ -67,7 +70,7 @@ public class Ex3HashtagMining {
   public JavaPairRDD<String,Integer> countMentions() {
     JavaRDD<String> mentions = hashtagMentionedOnTweet();
 
-    // Hint: think about the wordcount example
+    // Hint: think about what you did in the wordcount example
     // TODO write code here
     JavaPairRDD<String, Integer> counts = null;
 
