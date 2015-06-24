@@ -25,7 +25,15 @@ import org.apache.spark.sql.SQLContext;
  *  - print the schema of the dataframe
  *  - find people who are located in Paris
  *  - find the user who tweets the more
+ * 
+ *  And we use a dataset with 8198 tweets. Here an example of a tweet:
  *
+ *  {"id":"572692378957430785",
+ *    "user":"Srkian_nishu :)",
+ *    "text":"@always_nidhi @YouTube no i dnt understand bt i loved of this mve is rocking",
+ *    "place":"Orissa",
+ *    "country":"India"}
+ * 
  *  Use the DataFrameOnTweetsTest to implement the code.
  */
 public class DataFrameOnTweets {
@@ -86,7 +94,7 @@ public class DataFrameOnTweets {
   public DataFrame filterByLocation() {
     DataFrame dataFrame = loadData();
 
-    // Select all the persons which are located in Paris
+    // Find all the persons which are located in Paris
     // TODO write code here
     DataFrame filtered = null;
 
