@@ -18,6 +18,15 @@ public class DataFrameOnTweetsTest {
 
 
   @Test
+  public void loadData() {
+    // run
+    DataFrame result = dataFrame.loadData();
+
+    // assert
+    Assert.assertEquals(8198, result.toJavaRDD().count());
+  }
+
+  @Test
   public void showDataFrame() {
     // run
     dataFrame.showDataFrame();

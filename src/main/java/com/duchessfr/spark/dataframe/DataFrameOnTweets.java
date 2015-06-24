@@ -25,6 +25,8 @@ import org.apache.spark.sql.SQLContext;
  *  - print the schema of the dataframe
  *  - find people who are located in Paris
  *  - find the user who tweets the more
+ *
+ *  Use the DataFrameOnTweetsTest to implement the code.
  */
 public class DataFrameOnTweets {
 
@@ -40,15 +42,18 @@ public class DataFrameOnTweets {
 
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
-        .setAppName("User mining")
+        .setAppName("DataFrame")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
+
     // create a sql context
-    SQLContext sqlContext = new SQLContext(sc);
+    // TODO write code here
+    SQLContext sqlContext = null;
 
     // load the data as dataframe from the json file
-    DataFrame dataFrame = sqlContext.read().json(pathToFile);
+    // TODO write code here
+    DataFrame dataFrame = null;
 
     return dataFrame;
 
