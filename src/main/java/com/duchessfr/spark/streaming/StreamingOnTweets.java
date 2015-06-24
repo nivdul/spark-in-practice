@@ -41,7 +41,7 @@ public class StreamingOnTweets {
   public JavaDStream<Status> loadData() {
     // create the spark configuration and spark context
     SparkConf conf = new SparkConf()
-        .setAppName("Play with Spark Streaming")
+        .setAppName("Spark Streaming")
         .setMaster("local[*]");
 
     // create a java streaming context and define the window
@@ -96,11 +96,11 @@ public class StreamingOnTweets {
     JavaPairDStream<Integer, String> sortedHashtag = null;
 
     // and return the 10 most populars
-    List<Tuple2<Integer, String>> mostPopulars = new ArrayList<>();
-    // TODO write code here
     // Hint: loop on the RDD and take the 10 most popular
+    // TODO write code here
+    List<Tuple2<Integer, String>> mostPopulars = new ArrayList<>();
 
-    // Start the context
+    // Start the context: it won't work if you don't add this!
     jssc.start();
     jssc.awaitTermination();
 
