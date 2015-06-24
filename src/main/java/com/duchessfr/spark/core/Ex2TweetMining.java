@@ -25,6 +25,8 @@ import java.util.List;
  *  - Find all the persons mentioned on tweets
  *  - Count how many times each person is mentioned
  *  - Find the 10 most mentioned persons by descending order
+ *
+ *  Use the Ex2TweetMiningTest to implement the code.
  */
 public class Ex2TweetMining {
 
@@ -54,7 +56,8 @@ public class Ex2TweetMining {
   public JavaRDD<String> mentionOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
-    // Hint: use a regex...
+    // You want to return an RDD with the mentions
+    // Hint: think about separating the word in the text field and then find the mentions
     // TODO write code here
     JavaRDD<String> mentions = null;
 
@@ -67,7 +70,7 @@ public class Ex2TweetMining {
   public JavaPairRDD<String, Integer> countMentions() {
     JavaRDD<String> mentions = mentionOnTweet();
 
-    // Hint: think about the wordcount example
+    // Hint: think about what you did in the wordcount example
     // TODO write code here
     JavaPairRDD<String, Integer> mentionCount = null;
 
