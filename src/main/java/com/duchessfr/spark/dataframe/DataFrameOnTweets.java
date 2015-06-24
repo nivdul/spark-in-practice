@@ -25,6 +25,14 @@ import org.apache.spark.sql.SQLContext;
  *  - print the schema of the dataframe
  *  - find people who are located in Paris
  *  - find the user who tweets the more
+ * 
+ *  And we use a dataset with 8198 tweets. Here an example of a tweet:
+ *
+ *  {"id":"572692378957430785",
+ *    "user":"Srkian_nishu :)",
+ *    "text":"@always_nidhi @YouTube no i dnt understand bt i loved of this mve is rocking",
+ *    "place":"Orissa",
+ *    "country":"India"}
  */
 public class DataFrameOnTweets {
 
@@ -50,7 +58,6 @@ public class DataFrameOnTweets {
     DataFrame dataFrame = sqlContext.read().json(pathToFile);
 
     return dataFrame;
-
   }
 
   /**
@@ -58,7 +65,6 @@ public class DataFrameOnTweets {
    */
   public void showDataFrame() {
     DataFrame dataFrame = loadData();
-
     // Displays the content of the DataFrame to stdout
     dataFrame.show();
   }
@@ -69,7 +75,6 @@ public class DataFrameOnTweets {
   public void printSchema() {
     DataFrame dataFrame = loadData();
 
-    // Print the schema
     dataFrame.printSchema();
   }
 
@@ -79,11 +84,9 @@ public class DataFrameOnTweets {
   public DataFrame filterByLocation() {
     DataFrame dataFrame = loadData();
 
-    // Select all the persons which are located in Paris
     DataFrame filtered = dataFrame.filter(dataFrame.col("place").equalTo("Paris")).toDF();
 
     return filtered;
-
   }
 
   /**
@@ -98,8 +101,5 @@ public class DataFrameOnTweets {
     JavaRDD<Row> result = countByUser.javaRDD().sortBy(x -> x.get(1), false, 1);
 
     return result.first();
-
   }
-
-
 }
