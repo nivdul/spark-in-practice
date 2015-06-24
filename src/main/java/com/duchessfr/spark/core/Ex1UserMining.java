@@ -22,6 +22,8 @@ import org.apache.spark.api.java.JavaSparkContext;
  *  - find all the tweets by user
  *  - find how many tweets each user has
  *
+ *  Use the Ex1UserMiningTest to implement the code.
+ *
  */
 public class Ex1UserMining {
 
@@ -31,13 +33,15 @@ public class Ex1UserMining {
    *  Load the data from the json file and return an RDD of Tweet
    */
   public JavaRDD<Tweet> loadData() {
-    // create spark configuration and spark context
+    // Create spark configuration and spark context
     SparkConf conf = new SparkConf()
         .setAppName("User mining")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
 
+    // Load the data and parse it into a Tweet.
+    // Look at the Tweet Object in the TweetUtils class.
     JavaRDD<Tweet> tweets = sc.textFile(pathToFile)
                               .map(line -> Parse.parseJsonToTweet(line));
 
@@ -45,17 +49,16 @@ public class Ex1UserMining {
   }
 
   /**
-   *   Return for each user all his tweets
+   *   For each user return all his tweets
    */
   public JavaPairRDD<String, Iterable<Tweet>> tweetsByUser() {
     JavaRDD<Tweet> tweets = loadData();
 
     // TODO write code here
-    // Hint: take a look at the groupBy method
+    // Hint: the Spark API provides a groupBy method
     JavaPairRDD<String, Iterable<Tweet>> tweetsByUser = null;
 
     return tweetsByUser;
-
   }
 
   /**
@@ -65,7 +68,7 @@ public class Ex1UserMining {
     JavaRDD<Tweet> tweets = loadData();
 
     // TODO write code here
-    // Hint: think about the wordcount example
+    // Hint: think about what you did in the wordcount example
     JavaPairRDD<String, Integer> count = null;
 
     return count;
