@@ -39,7 +39,7 @@ In this exercise you will have to:
 * Print the status of each tweet
 * Find the 10 most popular Hashtag
 
-Part 3: structured data with the DataFrame
+## Part 3: structured data with the DataFrame
 A DataFrame is a distributed collection of data organized into named columns. It is conceptually equivalent to a table in a relational database or a data frame in R/Python, but with richer optimizations under the hood.
 DataFrames can be constructed from different sources such as: structured data files, tables in Hive, external databases, or existing RDDs.
 
