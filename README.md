@@ -6,6 +6,9 @@ If you need help, take a look at the solution branch.
 
 To help you to implement each class, unitair tests are in.
 
+I use Spark 1.4 and maven.
+
+
 ## Part 1: Spark core API
 To be more familiar with the Spark API, you will start by implementing the wordcount example (Ex0).
 After that we use reduced tweets as the data along a json format for data mining (Ex1-Ex3).
