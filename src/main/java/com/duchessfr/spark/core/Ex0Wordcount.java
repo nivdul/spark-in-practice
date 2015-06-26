@@ -29,10 +29,12 @@ public class Ex0Wordcount {
    *  Load the data from the text file and return an RDD of words
    */
   public JavaRDD<String> loadData() {
-    // create spark configuration and spark context
+    // create spark configuration and spark context: the Spark context is the entry point in Spark.
+    // It represents the connexion to Spark and it is the place where you can configure the common properties
+    // like the app name, the master url, memories allocation...
     SparkConf conf = new SparkConf()
         .setAppName("Wordcount")
-        .setMaster("local[*]");
+        .setMaster("local[*]"); // here local mode. And * means you will use as much as you have cores.
 
     JavaSparkContext sc = new JavaSparkContext(conf);
 
