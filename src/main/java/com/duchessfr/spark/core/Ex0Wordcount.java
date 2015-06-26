@@ -58,7 +58,7 @@ public class Ex0Wordcount {
     JavaPairRDD<String, Integer> couples = null;
 
     // Step 2: reducer step
-    // The philosophy: now you have couple (key, value) where the key is a word, you want to aggregate the value for each word.
+    // The philosophy: now you have a couple (key, value) where the key is a word, you want to aggregate the value for each word.
     // So you will use a reducer function.
     // Hint: the Spark API provides some reduce methods
     // TODO write code here
@@ -73,7 +73,7 @@ public class Ex0Wordcount {
   public JavaPairRDD<String, Integer> filterOnWordcount() {
     JavaPairRDD<String, Integer> wordcounts = wordcount();
 
-    // Hint: the Spark API provides filter method
+    // Hint: the Spark API provides a filter method
     // TODO write code here
     JavaPairRDD<String, Integer> filtered = null;
 
