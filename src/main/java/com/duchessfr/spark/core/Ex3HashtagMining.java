@@ -13,7 +13,7 @@ import java.util.List;
 /**
  *  The Java Spark API documentation: http://spark.apache.org/docs/latest/api/java/index.html
  *
- *  Now we use a dataset with 8198 tweets. Here an example of a tweet:
+ *  We still use the dataset with the 8198 reduced tweets. Here an example of a tweet:
  *
  *  {"id":"572692378957430785",
  *    "user":"Srkian_nishu :)",
@@ -61,7 +61,6 @@ public class Ex3HashtagMining {
     JavaRDD<String> mentions = null;
 
     return mentions;
-
   }
 
   /**
@@ -75,7 +74,6 @@ public class Ex3HashtagMining {
     JavaPairRDD<String, Integer> counts = null;
 
     return counts;
-
   }
 
   /**
@@ -84,12 +82,11 @@ public class Ex3HashtagMining {
   public List<Tuple2<Integer, String>> top10HashTags() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
-    // Hint: take a look at the sorting and then the take methods
+    // Hint: take a look at the sorting and take methods
     // TODO write code here
     List<Tuple2<Integer, String>> top10 = null;
 
     return top10;
-
   }
 
 }
