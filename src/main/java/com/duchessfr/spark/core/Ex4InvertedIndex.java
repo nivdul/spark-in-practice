@@ -11,12 +11,12 @@ import java.util.Map;
 /**
  *  Buildind a hashtag search engine
  *
- *  The goal is to build an inverted index. An inverted is the data structure used to build search engines.
+ *  The goal is to build an inverted index. An inverted index is the data structure used to build search engines.
  *
  *  How does it work?
  *
  *  Assuming #spark is an hashtag that appears in tweet1, tweet3, tweet39.
- *  Our inverted index is a Map (or HashMap) that contains a (key, value) pair as (#spark, List(tweet1,tweet3, tweet39)).
+ *  The inverted index that you must return should be a Map (or HashMap) that contains a (key, value) pair as (#spark, List(tweet1,tweet3, tweet39)).
  *
  */
 public class Ex4InvertedIndex {
@@ -57,7 +57,6 @@ public class Ex4InvertedIndex {
     Map<String, Iterable<Tweet>> map = null;
 
     return map;
-
   }
 
 }
