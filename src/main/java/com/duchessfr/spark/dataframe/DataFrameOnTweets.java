@@ -52,7 +52,8 @@ public class DataFrameOnTweets {
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
-    // create a sql context
+    // Create a sql context: the SQLContext wraps the SparkContext, and is specific to Spark SQL.
+    // It is the entry point in Spark SQL.
     SQLContext sqlContext = new SQLContext(sc);
 
     DataFrame dataFrame = sqlContext.read().json(pathToFile);
