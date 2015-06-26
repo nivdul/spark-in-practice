@@ -38,6 +38,8 @@ public class Ex0Wordcount {
     JavaSparkContext sc = new JavaSparkContext(conf);
 
     // load data and create an RDD where each element will be a word
+    // Here the flatMap method is used to separate the word in each line using the space separator
+    // In this way it returns an RDD where each "element" is a word
     JavaRDD<String> words = sc.textFile(pathToFile).flatMap(line -> Arrays.asList(line.split(" ")));
 
     return words;
