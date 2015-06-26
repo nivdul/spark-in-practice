@@ -55,7 +55,8 @@ public class DataFrameOnTweets {
 
     JavaSparkContext sc = new JavaSparkContext(conf);
 
-    // create a sql context
+    // Create a sql context: the SQLContext wraps the SparkContext, and is specific to Spark SQL.
+    // It is the entry point in Spark SQL.
     // TODO write code here
     SQLContext sqlContext = null;
 
