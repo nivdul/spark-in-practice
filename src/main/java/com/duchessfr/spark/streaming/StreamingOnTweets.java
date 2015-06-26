@@ -26,7 +26,7 @@ import java.util.List;
  *  which represents a continuous stream of data.
  *
  *  In this exercise we will:
- *  - Print the status of each tweet
+ *  - Print the status's text of each tweet's status
  *  - Find the 10 most popular Hashtag
  *
  *  You can see informations about the streaming in the Spark UI console: http://localhost:4040/streaming/
