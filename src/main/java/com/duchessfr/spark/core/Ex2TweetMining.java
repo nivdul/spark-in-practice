@@ -83,7 +83,7 @@ public class Ex2TweetMining {
   public List<Tuple2<Integer, String>> top10mentions() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
-    // Hint: take a look at the sorting and then the take methods
+    // Hint: take a look at the sorting and take methods
     // TODO write code here
     List<Tuple2<Integer, String>> mostMentioned = null;
 
