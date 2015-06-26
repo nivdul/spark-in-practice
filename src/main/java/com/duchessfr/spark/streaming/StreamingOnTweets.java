@@ -27,7 +27,7 @@ import java.util.List;
  *
  *  In this exercise we will:
  *  - Print the status text of the some of the tweets
- *  - Find the 10 most popular Hashtag
+ *  - Find the 10 most popular Hashtag  in the last 60 seconds
  *
  *  You can see informations about the streaming in the Spark UI console: http://localhost:4040/streaming/
  */
@@ -75,7 +75,7 @@ public class StreamingOnTweets {
   }
 
   /**
-   *  Find the 10 most popular Hashtag
+   *  Find the 10 most popular Hashtag in the last minute
    */
   public String top10Hashtag() {
     JavaDStream<Status> tweetsStream = loadData();
