@@ -23,6 +23,7 @@ public class Ex0WordcountTest {
     JavaRDD<String> words = ex0Wordcount.loadData();
 
     // assert
+    // this test is already green but see how we download the data in the loadData method
     Assert.assertEquals(809, words.count());
   }
 
