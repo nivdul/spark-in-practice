@@ -17,15 +17,11 @@ Frameworks used:
 All exercises runs in local mode as a standalone program.
 
 To work on the hands-on, retrieve the code via the following command line:
-<pre><code>Scala
-$ git clone https://github.com/nivdul/spark-in-practice-scala.git
+<pre><code>$ git clone https://github.com/nivdul/spark-in-practice.git</code></pre>
 
-Java
-$ git clone https://github.com/nivdul/spark-in-practice.git</code></pre>
+Then you can import the project in IntelliJ or Eclipse.
 
-Then you can import the project in IntelliJ or Eclipse (add the SBT and Scala plugins for Scala), or use sublime text for example.
-
-If you want to use the interactive spark-shell (only scala/python), you need to download a [binary Spark distribution](https://spark.apache.org/downloads.html).
+If you want to use the interactive spark-shell (only scala/python), you need to download a [binary Spark distribution](https://spark.apache.org/downloads.html). But you need to load scala 2.10.x because Spark 1.4.0 works with this version.
 
 <pre><code>Go to the Spark directory
 $ cd /spark-1.4.0
