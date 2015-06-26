@@ -26,7 +26,7 @@ import java.util.List;
  *  which represents a continuous stream of data.
  *
  *  In this exercise we will:
- *  - Print the status's text of each tweet's status
+ *  - Print the status text of the some of the tweets
  *  - Find the 10 most popular Hashtag
  *
  *  You can see informations about the streaming in the Spark UI console: http://localhost:4040/streaming/
@@ -46,12 +46,12 @@ public class StreamingOnTweets {
         .setAppName("Play with Spark Streaming")
         .setMaster("local[*]");
 
-    // create a java streaming context and define the window
+    // create a java streaming context and define the window (2 seconds batch)
     jssc = new JavaStreamingContext(conf, Durations.seconds(2));
 
     System.out.println("Initializing Twitter stream...");
 
-    // create a DStream (sequence of RDD):
+    // create a DStream (sequence of RDD). The object tweetsStream is a DStream of tweet statuses:
     // - the Status class contains all information of a tweet
     // See http://twitter4j.org/javadoc/twitter4j/Status.html
     JavaDStream<Status> tweetsStream = TwitterUtils.createStream(jssc, StreamUtils.getAuth());
@@ -61,7 +61,7 @@ public class StreamingOnTweets {
   }
 
   /**
-   *  Print the status's text of each status
+   *  Print the status text of the some of the tweets
    */
   public void tweetPrint() {
     JavaDStream<Status> tweetsStream = loadData();
@@ -105,7 +105,8 @@ public class StreamingOnTweets {
       return null;
     });
 
-    // Start the context
+    // we need to tell the context to start running the computation we have setup
+    // it won't work if you don't add this!
     jssc.start();
     jssc.awaitTermination();
 
