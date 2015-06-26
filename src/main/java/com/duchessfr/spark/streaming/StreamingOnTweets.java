@@ -25,7 +25,7 @@ import java.util.List;
  *
  *  In this exercise we will:
  *  - Print the status text of the some of the tweets
- *  - Find the 10 most popular Hashtag
+ *  - Find the 10 most popular Hashtag in the last minute
  *
  *  Before starting these exercises fill the keys and tokens in the Streamutils class!
  * 
@@ -78,7 +78,7 @@ public class StreamingOnTweets {
   }
 
   /**
-   *  Find the 10 most popular Hashtag
+   *  Find the 10 most popular Hashtag in the last minute
    */
   public String top10Hashtag() {
     JavaDStream<Status> tweetsStream = loadData();
@@ -88,7 +88,7 @@ public class StreamingOnTweets {
     JavaDStream<String> hashtags = null;
 
     // Make a "wordcount" on hashtag
-    // Hint: define a window for the reduce step. For example 50000 milliseconds.
+    // Hint: define a 1 second window (millisecond) for the reduce step.
     // TODO write code here
     JavaPairDStream<Integer, String> hashtagMention = null;
 
