@@ -24,9 +24,11 @@ import java.util.List;
  *  which represents a continuous stream of data.
  *
  *  In this exercise we will:
- *  - Print the status of each tweet
+ *  - Print the status's text of each tweet's status
  *  - Find the 10 most popular Hashtag
  *
+ *  Before starting these exercises fill the keys and tokens in the Streamutils class!
+ * 
  *  You can see informations about the streaming in the Spark UI console: http://localhost:4040/streaming/
  */
 public class StreamingOnTweets {
@@ -52,6 +54,7 @@ public class StreamingOnTweets {
     // create a DStream (sequence of RDD):
     // - the Status class contains all information of a tweet
     // See http://twitter4j.org/javadoc/twitter4j/Status.html
+    // and fill the keys and tokens in the Streamutils class!
     JavaDStream<Status> tweetsStream = TwitterUtils.createStream(jssc, StreamUtils.getAuth());
 
     return tweetsStream;
