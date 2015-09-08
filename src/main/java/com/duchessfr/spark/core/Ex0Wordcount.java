@@ -5,6 +5,7 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
+import java.util.Arrays;
 
 /**
  *  The Java Spark API documentation: http://spark.apache.org/docs/latest/api/java/index.html
