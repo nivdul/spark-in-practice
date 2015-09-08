@@ -49,6 +49,7 @@ public class DataFrameOnTweets {
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
         .setAppName("Dataframe")
+        .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
