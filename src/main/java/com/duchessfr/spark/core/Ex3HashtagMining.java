@@ -38,6 +38,7 @@ public class Ex3HashtagMining {
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
         .setAppName("Hashtag mining")
+        .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
