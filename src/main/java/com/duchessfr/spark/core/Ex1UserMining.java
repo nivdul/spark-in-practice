@@ -36,6 +36,7 @@ public class Ex1UserMining {
     // Create spark configuration and spark context
     SparkConf conf = new SparkConf()
         .setAppName("User mining")
+        .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
