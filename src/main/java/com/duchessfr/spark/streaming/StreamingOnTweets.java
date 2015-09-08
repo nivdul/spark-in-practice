@@ -44,6 +44,7 @@ public class StreamingOnTweets {
     // create the spark configuration and spark context
     SparkConf conf = new SparkConf()
         .setAppName("Spark Streaming")
+        .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]");
 
     // create a java streaming context and define the window (2 seconds batch)
