@@ -34,6 +34,7 @@ public class Ex0Wordcount {
     // like the app name, the master url, memories allocation...
     SparkConf conf = new SparkConf()
         .setAppName("Wordcount")
+        .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]"); // here local mode. And * means you will use as much as you have cores.
 
     JavaSparkContext sc = new JavaSparkContext(conf);
