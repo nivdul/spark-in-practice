@@ -35,6 +35,7 @@ public class Ex4InvertedIndex {
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
         .setAppName("Inverted index")
+        .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
