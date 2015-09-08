@@ -38,6 +38,7 @@ public class Ex2TweetMining {
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
                             .setAppName("Tweet mining")
+                            .set("spark.driver.allowMultipleContexts", "true")
                             .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
