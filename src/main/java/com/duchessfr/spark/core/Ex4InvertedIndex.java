@@ -29,7 +29,8 @@ public class Ex4InvertedIndex {
   public JavaRDD<Tweet> loadData() {
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
-        .setAppName("Tweet mining")
+        .setAppName("Inverted index")
+        .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
