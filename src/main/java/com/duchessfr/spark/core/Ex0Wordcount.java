@@ -62,6 +62,7 @@ public class Ex0Wordcount {
     JavaPairRDD<String, Integer> result = couples.reduceByKey((a, b) -> a + b);
 
     return result;
+    
   }
 
   /**
