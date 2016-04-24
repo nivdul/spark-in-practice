@@ -10,7 +10,7 @@ To help you to implement each class, unit tests are in.
 
 Frameworks used:
 
-* Spark 1.4.0
+* Spark 1.6.1
 * Java 8
 * maven
 * jUnit
@@ -23,10 +23,10 @@ To work on the hands-on, retrieve the code via the following command line:
 
 Then you can import the project in IntelliJ or Eclipse.
 
-If you want to use the interactive spark-shell (only scala/python), you need to download a [binary Spark distribution](https://spark.apache.org/downloads.html). But you need to load scala 2.10.x because Spark 1.4.0 works with this version.
+If you want to use the interactive spark-shell (only scala/python), you need to download a [binary Spark distribution](https://spark.apache.org/downloads.html). But you need to load scala 2.10.x because Spark >1.4.0 works with this version.
 
 <pre><code>Go to the Spark directory
-$ cd /spark-1.4.0
+$ cd /spark-X.X.X
 
 First build the project
 $ build/mvn -DskipTests clean package
