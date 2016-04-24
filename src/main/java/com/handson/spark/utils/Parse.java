@@ -1,4 +1,4 @@
-package com.duchessfr.spark.utils;
+package com.handson.spark.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

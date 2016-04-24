@@ -1,4 +1,4 @@
-package com.duchessfr.spark.core;
+package com.handson.spark.core;
 
 
 import org.apache.spark.api.java.JavaPairRDD;

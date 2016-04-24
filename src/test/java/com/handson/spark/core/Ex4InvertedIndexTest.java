@@ -1,7 +1,7 @@
-package com.duchessfr.spark.core;
+package com.handson.spark.core;
 
 
-import com.duchessfr.spark.utils.Tweet;
+import com.handson.spark.utils.Tweet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

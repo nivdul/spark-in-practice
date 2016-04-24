@@ -1,4 +1,4 @@
-package com.duchessfr.spark.dataframe;
+package com.handson.spark.dataframe;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;

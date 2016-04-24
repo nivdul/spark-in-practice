@@ -1,11 +1,9 @@
-package com.duchessfr.spark.core;
+package com.handson.spark.core;
 
 
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 
 public class Ex0WordcountTest {

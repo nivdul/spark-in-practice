@@ -1,7 +1,7 @@
-package com.duchessfr.spark.core;
+package com.handson.spark.core;
 
-import com.duchessfr.spark.utils.Parse;
-import com.duchessfr.spark.utils.Tweet;
+import com.handson.spark.utils.Parse;
+import com.handson.spark.utils.Tweet;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -21,14 +21,14 @@ import java.util.List;
  *    "place":"Orissa",
  *    "country":"India"}
  *
- *  We want to make some computations on the tweets:
- *  - Find all the persons mentioned on tweets
- *  - Count how many times each person is mentioned
- *  - Find the 10 most mentioned persons by descending order
+ *  We want to make some computations on the hashtags. It is very similar to the exercise 2
+ *  - Find all the hashtags mentioned on a tweet
+ *  - Count how many times each hashtag is mentioned
+ *  - Find the 10 most popular hashtag by descending order
  *
- *  Use the Ex2TweetMiningTest to implement the code.
+ *  Use the Ex3HashtagMiningTest to implement the code.
  */
-public class Ex2TweetMining {
+public class Ex3HashtagMining {
 
   private static String pathToFile = "data/reduced-tweets.json";
 
@@ -38,23 +38,22 @@ public class Ex2TweetMining {
   public JavaRDD<Tweet> loadData() {
     // create spark configuration and spark context
     SparkConf conf = new SparkConf()
-        .setAppName("Tweet mining")
+        .setAppName("Hashtag mining")
         .set("spark.driver.allowMultipleContexts", "true")
         .setMaster("local[*]");
 
     JavaSparkContext sc = new JavaSparkContext(conf);
 
-    // load the data and create an RDD of Tweet
     JavaRDD<Tweet> tweets = sc.textFile(pathToFile)
-                              .map(line -> Parse.parseJsonToTweet(line));
+        .map(line -> Parse.parseJsonToTweet(line));
 
     return tweets;
   }
 
   /**
-   *  Find all the persons mentioned on tweets (case sensitive)
+   *  Find all the hashtags mentioned on tweets
    */
-  public JavaRDD<String> mentionOnTweet() {
+  public JavaRDD<String> hashtagMentionedOnTweet() {
     JavaRDD<Tweet> tweets = loadData();
 
     // You want to return an RDD with the mentions
@@ -63,32 +62,32 @@ public class Ex2TweetMining {
     JavaRDD<String> mentions = null;
 
     return mentions;
-
   }
+
   /**
-   *  Count how many times each person is mentioned
+   *  Count how many times each hashtag is mentioned
    */
-  public JavaPairRDD<String, Integer> countMentions() {
-    JavaRDD<String> mentions = mentionOnTweet();
+  public JavaPairRDD<String,Integer> countMentions() {
+    JavaRDD<String> mentions = hashtagMentionedOnTweet();
 
     // Hint: think about what you did in the wordcount example
     // TODO write code here
-    JavaPairRDD<String, Integer> mentionCount = null;
+    JavaPairRDD<String, Integer> counts = null;
 
-    return mentionCount;
+    return counts;
   }
 
   /**
-   *  Find the 10 most mentioned persons by descending order
+   *  Find the 10 most popular Hashtags by descending order
    */
-  public List<Tuple2<Integer, String>> top10mentions() {
+  public List<Tuple2<Integer, String>> top10HashTags() {
     JavaPairRDD<String, Integer> counts = countMentions();
 
     // Hint: take a look at the sorting and take methods
     // TODO write code here
-    List<Tuple2<Integer, String>> mostMentioned = null;
+    List<Tuple2<Integer, String>> top10 = null;
 
-    return mostMentioned;
+    return top10;
   }
 
 }
