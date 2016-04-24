@@ -1,4 +1,4 @@
-package com.duchessfr.spark.streaming;
+package com.handson.spark.streaming;
 
 import twitter4j.auth.OAuthAuthorization;
 import twitter4j.conf.ConfigurationBuilder;

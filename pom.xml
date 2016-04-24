@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <sparkVersion>1.5.2</sparkVersion>
+        <sparkVersion>1.6.1</sparkVersion>
     </properties>
     <dependencies>
         <dependency>

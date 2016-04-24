@@ -1,15 +1,12 @@
-package com.duchessfr.spark.core;
+package com.handson.spark.core;
 
-import com.duchessfr.spark.utils.Parse;
-import com.duchessfr.spark.utils.Tweet;
+import com.handson.spark.utils.Parse;
+import com.handson.spark.utils.Tweet;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
-
-import java.util.Comparator;
-import java.util.List;
 
 /**
  *  The Java Spark API documentation: http://spark.apache.org/docs/latest/api/java/index.html

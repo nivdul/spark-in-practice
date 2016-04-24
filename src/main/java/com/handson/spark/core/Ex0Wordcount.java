@@ -1,4 +1,4 @@
-package com.duchessfr.spark.core;
+package com.handson.spark.core;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -56,13 +56,13 @@ public class Ex0Wordcount {
     JavaRDD<String> words = loadData();
 
     // Step 1: mapper step
-    JavaPairRDD<String, Integer> couples = words.mapToPair(word -> new Tuple2<String, Integer>(word, 1));
+    JavaPairRDD<String, Integer> couples = words.mapToPair(word -> new Tuple2<>(word, 1));
 
     // Step 2: reducer step
     JavaPairRDD<String, Integer> result = couples.reduceByKey((a, b) -> a + b);
 
     return result;
-    
+
   }
 
   /**
